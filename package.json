@@ -1,0 +1,55 @@
+{
+  "name": "tree-sitter-structured-text",
+  "version": "1.0.0",
+  "description": "Tree sitter for structured text",
+  "main": "grammar.js",
+  "types": "bindings/node",
+  "author": "Michael Tal",
+  "license": "MIT",
+  "dependencies": {
+    "node-gyp-build": "^4.8.0",
+    "node-addon-api": "^7.1.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0",
+    "prebuildify": "^6.0.0",
+    "prettier": "^3.0.3",
+    "tree-sitter-cli": "^0.22.5"
+  },
+  "scripts": {
+    "build": "tree-sitter generate && node-gyp build",
+    "format": "prettier -w grammar.js",
+    "lint": "eslint grammar.js",
+    "test": "tree-sitter test && script/parse-examples",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.st",
+      "file-types": [
+        "st",
+        "scl"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ]
+}

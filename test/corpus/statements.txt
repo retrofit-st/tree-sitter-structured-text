@@ -1,0 +1,296 @@
+==================
+VAR Statement
+==================
+
+PROGRAM test
+  VAR
+      Start_Stop  : BOOL;
+      ON_OFF      : BOOL;
+  END_VAR
+END_PROGRAM
+
+---
+
+(source_file
+  (program_definition
+    (identifier)
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type))
+        (var_declaration
+          (identifier)
+          (primitive_type)))))
+
+==================
+If-else Statement
+==================
+
+FUNCTION_BLOCK test
+  VAR_IN_OUT
+    Motor       : BOOL;
+  END_VAR
+
+  VAR_TEMP
+    Start_Stop  : BOOL;
+    Error      : BOOL;
+  END_VAR
+
+  IF Start_Stop THEN
+    Motor := TRUE;
+  ELSIF Error THEN
+    Motor := FALSE;
+  ELSE
+    Motor := FALSE;
+  END_IF;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type))
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (if_statement
+      (identifier)
+      (identifier)
+      (boolean)
+      (elseif_clause
+        (identifier)
+        (identifier)
+        (boolean))
+      (else_clause
+        (identifier)
+          (boolean)))))
+
+==================
+Case Statement
+==================
+
+FUNCTION_BLOCK test
+  VAR_IN_OUT
+    Motor : BOOL;
+  END_VAR
+
+  VAR
+    State : INT;
+  END_VAR
+
+  VAR CONSTANT
+    STATE_STOP_MOTOR : INT := 20;
+  END_VAR
+
+  CASE State OF
+    0:
+      Motor := FALSE;
+      State := 10;
+    State#StartMotor:
+      Motor := TRUE;
+      State := STATE_STOP_MOTOR;
+    STATE_STOP_MOTOR:
+      Motor := FALSE;
+      State := 0;
+  END_CASE;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)
+          (integer)))
+    (case_statement
+      (identifier)
+      (case
+        (case_value
+          (integer))
+        (identifier)
+        (boolean)
+        (identifier)
+        (integer))
+      (case
+        (case_value
+        (member_access
+          (identifier)
+          (identifier)))
+        (identifier)
+        (boolean)
+        (identifier)
+        (identifier))
+      (case
+        (case_value
+          (identifier))
+        (identifier)
+        (boolean)
+        (identifier)
+        (integer)))))
+    
+==================
+For Statement
+==================
+
+FUNCTION_BLOCK test
+  VAR_IN_OUT
+    Motor : BOOL;
+  END_VAR
+
+  VAR
+    i : INT;
+  END_VAR
+
+  FOR i := 0 TO 10 BY 1 DO
+    Motor := i/2 = 10; 
+  END_FOR;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (for_statement
+      (range
+        (identifier)
+        (integer)
+        (integer)
+        (integer))
+      (identifier)
+        (boolean_expression
+          (boolean_expression
+            (identifier)
+            (integer))
+          (integer)))))
+
+==================
+While Statement
+==================
+
+FUNCTION_BLOCK test
+  VAR
+    Index : INT;
+    Sum : INT;
+  END_VAR
+
+  Index := 0;
+  Sum := 0;
+  WHILE Index < 10 DO
+    Sum := Sum + Values[ Index ];
+    Index := Index + 1;
+  END_WHILE;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+        (var_declaration
+          (identifier)
+          (primitive_type))
+        (var_declaration
+          (identifier)
+          (primitive_type)))
+    (identifier)
+    (integer)
+    (identifier)
+    (integer)
+    (while_statement
+      (boolean_expression
+        (identifier)
+        (integer))
+      (identifier)
+      (boolean_expression
+        (identifier)
+        (array_access
+        (identifier)
+        (identifier)))
+      (identifier)
+        (boolean_expression
+          (identifier)
+          (integer)))))
+
+==================
+Repeat Statement
+==================
+
+FUNCTION_BLOCK test
+  VAR
+    Index : INT;
+    Sum : INT;
+  END_VAR
+
+  Index := 0;
+  Sum := 0;
+  REPEAT
+    Sum := Sum + Values[ Index ];
+    Index := Index + 1;
+  UNTIL Index >= 10 
+  END_REPEAT;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+      (var_declaration
+        (identifier)
+        (primitive_type))
+      (var_declaration
+        (identifier)
+        (primitive_type)))
+    (identifier)
+    (integer)
+    (identifier)
+    (integer)
+    (repeat_statement
+      (identifier)
+      (boolean_expression
+        (identifier)
+        (array_access
+          (identifier)
+          (identifier)))
+      (identifier)
+      (boolean_expression
+        (identifier)
+        (integer))
+      (boolean_expression
+        (identifier)
+        (integer)))))

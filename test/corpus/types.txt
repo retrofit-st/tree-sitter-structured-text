@@ -1,0 +1,120 @@
+==================
+Struct Types
+==================
+
+TYPE polygonline :
+  STRUCT
+    start:ARRAY [1..2] OF INT;
+    point1:ARRAY [*] OF INT;
+    point2:ARRAY [1..2] OF INT;
+    point3:ARRAY [1..2] OF INT;
+    point4:ARRAY [1..2] OF INT;
+    end:ARRAY [1..2] OF INT;
+
+    testBool : BOOL := FALSE;
+  END_STRUCT
+END_TYPE
+
+---
+
+(source_file
+  (type_definition
+  (identifier)
+    (struct_definition
+      (var_declaration
+        (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (array_type
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
+            (identifier)
+            (primitive_type)
+            (boolean)))))
+
+==================
+Enumerated Types
+==================
+
+TYPE COLOR :
+(
+    red,
+    yellow,
+    green
+) := green;
+END_TYPE
+
+---
+
+(source_file
+  (type_definition
+    (identifier)
+    (enum_definition
+      (identifier)
+      (identifier)
+      (identifier)
+      (assignment
+        (identifier)))))
+
+==================
+Enumerated Value Types
+==================
+
+TYPE COLOR :
+(
+    red := 1,
+    yellow := 2,
+    green := 3
+) := green;
+END_TYPE
+
+---
+
+(source_file
+  (type_definition
+    (identifier)
+    (enum_definition
+      (assignment
+        (identifier)
+        (integer))
+      (assignment
+        (identifier)
+        (integer))
+      (assignment
+        (identifier)
+        (integer))
+      (assignment
+        (identifier)))))

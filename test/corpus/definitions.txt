@@ -1,0 +1,177 @@
+==================
+Program Definition
+==================
+
+PROGRAM testProgram
+END_PROGRAM
+
+---
+
+(source_file
+  (program_definition
+    (identifier)))
+
+==================
+Case insensitive program Definition
+==================
+
+program testProgram
+END_program
+
+---
+
+(source_file
+  (program_definition
+    (identifier)))
+
+==================
+Configuration Definition
+==================
+
+CONFIGURATION DefaultCfg
+    VAR_GLOBAL
+        b_Start_Stop  : BOOL;
+        b_ON_OFF      : BOOL;
+        Start_Stop AT %IX0.0:BOOL;
+        ON_OFF     AT %QX0.0:BOOL;
+    END_VAR
+
+    // Schedule the main program to be executed every 20 ms
+    TASK Tick(INTERVAL := T#20ms);
+
+    PROGRAM Main WITH Tick : Monitor_Start_Stop;
+END_CONFIGURATION
+
+---
+
+(source_file
+  (configuration_definition
+    (identifier)
+        (var_statement
+          (var_declaration
+            (identifier)
+            (primitive_type))
+          (var_declaration
+            (identifier)
+            (primitive_type))
+          (var_declaration
+              (identifier)
+              (primitive_type))
+          (var_declaration
+            (identifier)
+            (primitive_type)))
+        (inline_comment)
+        (task_statement
+          (identifier)
+          (assignment
+          (time)))
+        (program_statement
+          (identifier)
+          (identifier)
+          (identifier))))
+
+==================
+Function Definition
+==================
+
+FUNCTION test
+END_FUNCTION
+
+---
+
+(source_file
+  (function_definition
+    (identifier)))
+
+==================
+Function with return value Definition
+==================
+
+FUNCTION test : INT
+  VAR_TEMP
+    i : INT := 2;
+  END_VAR
+
+  i := i + 1;
+
+  test := i;
+END_FUNCTION
+
+---
+
+(source_file
+  (function_definition
+    (identifier)
+    (primitive_type)
+    (var_statement
+      (var_declaration
+        (identifier)
+        (primitive_type)
+        (integer)))
+    (identifier)
+    (boolean_expression
+      (identifier)
+      (integer))
+    (identifier)
+      (identifier)))
+
+==================
+Function Block Definition
+==================
+
+FUNCTION_BLOCK test
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)))
+
+==================
+Class Definition
+==================
+
+CLASS test
+END_CLASS
+
+---
+
+(source_file
+  (class_definition
+    (identifier)))
+
+==================
+Namespace Definition
+==================
+
+NAMESPACE test
+END_NAMESPACE
+
+---
+
+(source_file
+  (namespace_definition
+    (identifier)))
+
+
+==================
+Namespace wraps others Definition
+==================
+
+NAMESPACE test
+  CLASS testClass
+    METHOD PUBLIC testfn
+    END_METHOD
+  END_CLASS
+END_NAMESPACE
+
+---
+
+(source_file
+  (namespace_definition
+    (identifier)
+    (class_definition
+      (identifier)
+      (function_definition
+        (identifier)))))

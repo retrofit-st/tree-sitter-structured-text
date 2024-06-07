@@ -1,0 +1,171 @@
+==================
+binary expressions
+==================
+
+FUNCTION_BLOCK test
+  VAR
+    x : INT;
+    y : INT := 2;
+  END_VAR
+
+  x := x + 1;
+  x := 1 + 2;
+  x := x + y;
+  x := x - 1;
+  x := 1 - 2;
+  x := x - y;
+  x := x mod 2;
+  x := 1 mod 2;
+  x := x mod y;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+      (var_declaration
+        (identifier)
+        (primitive_type))
+          (var_declaration
+            (identifier)
+            (primitive_type)
+            (integer)))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (identifier))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (identifier))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (identifier))))
+
+==================
+boolean expressions
+==================
+
+FUNCTION_BLOCK test
+  VAR
+    i : BOOL;
+  END_VAR
+
+  i := i < 1;
+  i := 1 <= 2;
+  i := i > 1;
+  i := 1 >= 2;
+  i := i = 2;
+  i := 1 <> 2;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+      (var_declaration
+        (identifier)
+        (primitive_type)))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (identifier)
+          (integer))
+        (identifier)
+        (boolean_expression
+          (integer)
+          (integer))))
+
+==================
+call expressions
+==================
+
+FUNCTION_BLOCK test
+  VAR
+    Timer : TON;
+    TimerFired : BOOL;
+  END_VAR
+
+  Timer(
+    in := Execute AND NOT CycleTimer.Q,
+    pt := TimerPreset);
+
+  TimerFired := Timer.Q;
+
+END_FUNCTION_BLOCK
+
+---
+
+(source_file
+  (function_block_definition
+    (identifier)
+    (var_statement
+      (var_declaration
+        (identifier)
+        (identifier))
+      (var_declaration
+        (identifier)
+        (primitive_type)))
+    (call_expression
+      (identifier)
+      (parameter_assignment
+        (parameter)
+        (boolean_expression
+          (identifier)
+          (unary_expression
+            (member_access
+              (identifier)
+                (identifier)))))
+      (parameter_assignment
+        (parameter)
+        (identifier)))
+    (identifier)
+      (member_access
+        (identifier)
+          (identifier))))
