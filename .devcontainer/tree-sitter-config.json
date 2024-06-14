@@ -1,0 +1,54 @@
+{
+  "parser-directories": [
+    "/workspaces"
+  ],
+  "theme": {
+    "attribute": {
+      "italic": true,
+      "color": 124
+    },
+    "variable.builtin": {
+      "bold": true
+    },
+    "string.special": 30,
+    "number": {
+      "bold": true,
+      "color": 94
+    },
+    "constant": 94,
+    "embedded": null,
+    "module": 136,
+    "punctuation.bracket": 239,
+    "string": 28,
+    "function": 26,
+    "variable.parameter": {
+      "underline": true
+    },
+    "comment": {
+      "color": 245,
+      "italic": true
+    },
+    "constant.builtin": {
+      "bold": true,
+      "color": 94
+    },
+    "type.builtin": {
+      "bold": true,
+      "color": 23
+    },
+    "operator": {
+      "color": 239,
+      "bold": true
+    },
+    "function.builtin": {
+      "color": 26,
+      "bold": true
+    },
+    "property": 124,
+    "keyword": 56,
+    "type": 23,
+    "punctuation.delimiter": 239,
+    "constructor": 136,
+    "tag": 18
+  }
+}
