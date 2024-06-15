@@ -55,10 +55,12 @@ END_CONFIGURATION
             (identifier)
             (primitive_type))
           (var_declaration
-              (identifier)
-              (primitive_type))
+            (identifier)
+            (float)
+            (primitive_type))
           (var_declaration
             (identifier)
+            (float)
             (primitive_type)))
         (inline_comment)
         (task_statement
