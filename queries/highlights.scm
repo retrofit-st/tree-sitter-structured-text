@@ -68,9 +68,6 @@
 "end_repeat"
 "while"
 "end_while"
-] @keyword
-
-[
 "program" 
 "end_program" 
 "function" 
@@ -80,7 +77,7 @@
 "method"
 "end_method"
 "task"
-] @keyword.function
+] @keyword
 
 
 (boolean) @keyword
