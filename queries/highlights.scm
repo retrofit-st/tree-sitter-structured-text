@@ -14,11 +14,11 @@
 
 (configuration_definition name: (identifier) @identifier)
 (program_definition name: (identifier) @identifier)
-(function_definition name: (identifier) @identifier) @function.definition
-(function_block_definition name: (identifier) @identifier) @struct.definition
-(class_definition name: (identifier) @identifier) @class.definition
-(namespace_definition name: (identifier) @identifier) @namespace.definition
-(type_definition name: (identifier) @identifier) @type.definition
+(function_definition name: (identifier) @function.definition) 
+(function_block_definition name: (identifier) @function.definition) 
+(class_definition name: (identifier) @class.definition) 
+(namespace_definition name: (identifier) @namespace.definition) 
+(type_definition name: (identifier) @type.definition) 
 (struct_definition) @struct.definition
 (enum_definition) @enum.definition
 
