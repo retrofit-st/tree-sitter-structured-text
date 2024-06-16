@@ -161,7 +161,7 @@ END_NAMESPACE
 Namespace wraps others Definition
 ==================
 
-NAMESPACE test
+NAMESPACE test.class
   CLASS testClass
     METHOD PUBLIC testfn
     END_METHOD
@@ -172,6 +172,7 @@ END_NAMESPACE
 
 (source_file
   (namespace_definition
+    (identifier)
     (identifier)
     (class_definition
       (identifier)
