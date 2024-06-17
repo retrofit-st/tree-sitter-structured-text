@@ -1,4 +1,4 @@
-FUNCTION TestFunction : INT
+FUNCTION TestFunction : BOOL
     VAR_INPUT
         test_input : BOOL;
     END_VAR

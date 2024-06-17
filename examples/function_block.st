@@ -1,4 +1,4 @@
-NAMESPACE Test.FunctionBlock
+NAMESPACE Test.FB
     /*=======================================================================
     Function Block Timed Counter :  Incremental count of the timed interval
     =======================================================================*/
