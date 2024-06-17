@@ -116,9 +116,9 @@ module.exports = grammar({
 
     assignment: $ =>
       seq(
-        optional($.identifier),
+        optional(field('left', $.identifier)),
         ':=',
-        $._expression,
+        field('righ', $._expression),
         optional(choice(';', ',')),
       ),
 
