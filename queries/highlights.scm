@@ -44,6 +44,7 @@
 "constant"
 "public"
 "internal"
+"private"
 "if" 
 "then" 
 "else" 
