@@ -1,9 +1,17 @@
 NAMESPACE TestNamespaceAndClass
-    TYPE Color : (
-        RED := 1,
-        GREEN := 2,
-        BLUE := 3,
-        YELLOW := 4) := RED;
+    TYPE 
+        ColorWithValues : (
+            RED := 1,
+            GREEN := 2,
+            BLUE := 3,
+            YELLOW := 4) := RED;
+
+        Color : (
+            RED,
+            GREEN,
+            BLUE,
+            YELLOW
+        );
     END_TYPE
     
     CLASS TestClass
@@ -25,7 +33,7 @@ NAMESPACE TestNamespaceAndClass
                 state : INT;
             END_VAR
             VAR_TEMP
-                stateCase : Color;
+                stateCase : ColorWithValues;
             END_VAR
 
             CASE state OF

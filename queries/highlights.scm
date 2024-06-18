@@ -1,10 +1,9 @@
 ; Identifiers
 
 (identifier) @variable
-(type_definition) @type
 (primitive_type) @type
 (struct_access member: (identifier) @property)
-(enum_access member: (identifier) @enumMember) 
+(enum_access member: (identifier) @enumMember)
 
 ; Function calls
 
@@ -18,9 +17,8 @@
 (function_block_definition name: (identifier) @function) 
 (class_definition name: (identifier) @class) 
 (namespace_definition name: (identifier) @namespace) 
-(type_definition name: (identifier) @type) 
-(struct_definition) @struct
-(enum_definition) @enum
+(struct_definition name: (identifier) @struct)
+(enum_definition name: (identifier) @enum) 
 
 ; comments
 (inline_comment) @comment

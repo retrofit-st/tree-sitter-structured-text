@@ -19,8 +19,8 @@ END_TYPE
 
 (source_file
   (type_definition
-  (identifier)
     (struct_definition
+      (identifier)
       (var_declaration
         (identifier)
             (array_type
@@ -81,8 +81,8 @@ END_TYPE
 
 (source_file
   (type_definition
-    (identifier)
     (enum_definition
+      (identifier)
       (identifier)
       (identifier)
       (identifier)
@@ -105,8 +105,8 @@ END_TYPE
 
 (source_file
   (type_definition
-    (identifier)
     (enum_definition
+      (identifier)
       (assignment
         (identifier)
         (integer))

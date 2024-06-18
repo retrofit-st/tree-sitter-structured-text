@@ -9,6 +9,7 @@ module.exports = grammar({
     [$._expression, $.call_expression],
     [$.call_expression],
     [$.case],
+    [$.enum_definition]
   ],
 
   extras: $ => [$.inline_comment, $.block_comment, /\s/],
@@ -80,14 +81,14 @@ module.exports = grammar({
     type_definition: $ =>
       seq(
         caseInsensitive('type'),
-        field('name', $.identifier),
-        ':',
-        choice($.struct_definition, $.enum_definition),
+        repeat(choice($.struct_definition, $.enum_definition)),
         caseInsensitive('end_type'),
       ),
 
     struct_definition: $ =>
       seq(
+        field('name', $.identifier),
+        ':',
         caseInsensitive('struct'),
         repeat1($.var_declaration),
         caseInsensitive('end_struct'),
@@ -95,8 +96,10 @@ module.exports = grammar({
 
     enum_definition: $ =>
       seq(
+        field('name', $.identifier),
+        ':',
         '(',
-        choice(commaSep1($.identifier), repeat1($.assignment)),
+        choice(commaSep1(field('enumeration', $.identifier)), repeat1($.assignment)),
         ')',
         optional($.assignment),
       ),
@@ -118,7 +121,7 @@ module.exports = grammar({
       seq(
         optional(field('left', $.identifier)),
         ':=',
-        field('righ', $._expression),
+        field('right', $._expression),
         optional(choice(';', ',')),
       ),
 

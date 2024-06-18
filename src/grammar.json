@@ -385,29 +385,20 @@
           "value": "type"
         },
         {
-          "type": "FIELD",
-          "name": "name",
+          "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "identifier"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "struct_definition"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "enum_definition"
+              }
+            ]
           }
-        },
-        {
-          "type": "STRING",
-          "value": ":"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "struct_definition"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "enum_definition"
-            }
-          ]
         },
         {
           "type": "ALIAS",
@@ -423,6 +414,18 @@
     "struct_definition": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
         {
           "type": "ALIAS",
           "content": {
@@ -453,6 +456,18 @@
     "enum_definition": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
         {
           "type": "STRING",
           "value": "("
@@ -496,12 +511,8 @@
             {
               "type": "REPEAT1",
               "content": {
-                "type": "FIELD",
-                "name": "named_value",
-                "content": {
-                  "type": "SYMBOL",
-                  "name": "assignment"
-                }
+                "type": "SYMBOL",
+                "name": "assignment"
               }
             }
           ]
@@ -617,7 +628,7 @@
         },
         {
           "type": "FIELD",
-          "name": "righ",
+          "name": "right",
           "content": {
             "type": "SYMBOL",
             "name": "_expression"
@@ -3003,6 +3014,9 @@
     ],
     [
       "case"
+    ],
+    [
+      "enum_definition"
     ]
   ],
   "precedences": [],
