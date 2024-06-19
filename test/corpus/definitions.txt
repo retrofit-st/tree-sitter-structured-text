@@ -55,10 +55,12 @@ END_CONFIGURATION
             (identifier)
             (primitive_type))
           (var_declaration
-              (identifier)
-              (primitive_type))
+            (identifier)
+            (float)
+            (primitive_type))
           (var_declaration
             (identifier)
+            (float)
             (primitive_type)))
         (inline_comment)
         (task_statement
@@ -159,7 +161,7 @@ END_NAMESPACE
 Namespace wraps others Definition
 ==================
 
-NAMESPACE test
+NAMESPACE test.class
   CLASS testClass
     METHOD PUBLIC testfn
     END_METHOD
@@ -171,7 +173,37 @@ END_NAMESPACE
 (source_file
   (namespace_definition
     (identifier)
+    (identifier)
     (class_definition
       (identifier)
       (function_definition
         (identifier)))))
+
+==================
+FunctionBlock with pragma definition
+==================
+
+NAMESPACE test.class
+  {this is a pragma}
+  FUNCTION_BLOCK testClass
+    VAR
+      {this is another pragma before a variable}
+      hello : INT;
+    END_VAR
+  END_FUNCTION_BLOCK
+END_NAMESPACE
+
+---
+
+(source_file
+  (namespace_definition
+    (identifier)
+    (identifier)
+    (pragma_definition)
+    (function_block_definition
+      (identifier)
+      (var_statement
+        (pragma_definition)
+        (var_declaration
+          (identifier)
+          (primitive_type))))))

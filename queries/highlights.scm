@@ -1,9 +1,9 @@
 ; Identifiers
 
 (identifier) @variable
-(type_definition) @type
-(primitive_type) @type.builtin
-(member_access) @property
+(primitive_type) @type
+(struct_access member: (identifier) @property)
+(enum_access member: (identifier) @enumMember)
 
 ; Function calls
 
@@ -13,32 +13,28 @@
 
 (configuration_definition name: (identifier) @identifier)
 (program_definition name: (identifier) @identifier)
-(function_definition name: (identifier) @identifier)
-(function_block_definition name: (identifier) @identifier)
-(class_definition name: (identifier) @identifier)
-(namespace_definition name: (identifier) @identifier)
+(function_definition name: (identifier) @function) 
+(function_block_definition name: (identifier) @function) 
+(class_definition name: (identifier) @class) 
+(namespace_definition name: (identifier) @namespace) 
+(struct_definition name: (identifier) @struct)
+(enum_definition name: (identifier) @enum) 
+(pragma_definition) @macro
 
+; comments
 (inline_comment) @comment
 (block_comment) @comment
+(doc_comment) @comment.documentation
 
-;(inline_comment (doc_comment)) @comment.documentation
-;(block_comment (doc_comment)) @comment.documentation
 
-"(" @punctuation.bracket
-")" @punctuation.bracket
-"[" @punctuation.bracket
-"]" @punctuation.bracket
-
-":" @punctuation.delimiter
-"." @punctuation.delimiter
-"," @punctuation.delimiter
-";" @punctuation.delimiter
+[
+";"
+"."
+","
+] @punctuation.delimiter
 
 [
 "protected"
-"and"
-"or"
-"not"
 "at"
 "with" 
 "type"
@@ -52,9 +48,9 @@
 "namespace" 
 "end_namespace"
 "constant"
-"mod"
 "public"
 "internal"
+"private"
 "if" 
 "then" 
 "else" 
@@ -68,9 +64,6 @@
 "end_repeat"
 "while"
 "end_while"
-] @keyword
-
-[
 "program" 
 "end_program" 
 "function" 
@@ -80,7 +73,50 @@
 "method"
 "end_method"
 "task"
-] @keyword.function
+"var_input"
+"var_output"
+"var_in_out"
+"var_global"
+"var_temp"
+"var_external"
+"var"
+"end_var"
+(boolean)
+"continue"
+"return"
+] @keyword
 
+[
+"and"
+"or"
+"xor"
+"not"
+"mod"
+"+"
+"-"
+"*"
+"/"
+"<"
+"<="
+"="
+">"
+">="
+"<>"
+] @operator
 
-(boolean) @keyword
+[
+(integer)
+(float)
+(binary)
+(octal)
+(hexadecimal)
+(time)
+(date)
+(time_of_day)
+(date_and_time)
+] @number
+
+[
+(string)
+(wstring)
+] @string

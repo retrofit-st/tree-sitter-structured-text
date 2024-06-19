@@ -9,9 +9,10 @@ module.exports = grammar({
     [$._expression, $.call_expression],
     [$.call_expression],
     [$.case],
+    [$.enum_definition]
   ],
 
-  extras: $ => [$.inline_comment, $.block_comment, /\s/],
+  extras: $ => [$.inline_comment, $.block_comment, $.doc_comment, /\s/],
 
   rules: {
     source_file: $ => repeat($._definition),
@@ -21,16 +22,22 @@ module.exports = grammar({
         $.namespace_definition,
         $.configuration_definition,
         $.program_definition,
-        $.class_definition,
-        $.function_definition,
-        $.function_block_definition,
+        seq(repeat($.pragma_definition), $.class_definition),
+        seq(repeat($.pragma_definition), $.function_definition),
+        seq(repeat($.pragma_definition), $.function_block_definition),
         $.type_definition,
       ),
+
+    pragma_definition: $ => token(seq(
+      '{',
+      /.*/,
+      '}',
+    )),
 
     namespace_definition: $ =>
       seq(
         caseInsensitive('namespace'),
-        field('name', $.identifier),
+        field('name', seq($.identifier, optional(repeat(seq(token.immediate('.'), $.identifier))))),
         repeat($._definition),
         caseInsensitive('end_namespace'),
       ),
@@ -80,14 +87,14 @@ module.exports = grammar({
     type_definition: $ =>
       seq(
         caseInsensitive('type'),
-        $.identifier,
-        ':',
-        choice($.struct_definition, $.enum_definition),
+        repeat(choice($.struct_definition, $.enum_definition)),
         caseInsensitive('end_type'),
       ),
 
     struct_definition: $ =>
       seq(
+        field('name', $.identifier),
+        ':',
         caseInsensitive('struct'),
         repeat1($.var_declaration),
         caseInsensitive('end_struct'),
@@ -95,8 +102,10 @@ module.exports = grammar({
 
     enum_definition: $ =>
       seq(
+        field('name', $.identifier),
+        ':',
         '(',
-        choice(commaSep1($.identifier), repeat1($.assignment)),
+        choice(commaSep1(field('enumeration', $.identifier)), repeat1($.assignment)),
         ')',
         optional($.assignment),
       ),
@@ -110,13 +119,15 @@ module.exports = grammar({
         $._loop_statement,
         $._expression,
         seq($._expression, ':=', $._expression, ';'),
+        caseInsensitive('continue'),
+        caseInsensitive('return')
       ),
 
     assignment: $ =>
       seq(
-        optional($.identifier),
+        optional(field('left', $.identifier)),
         ':=',
-        $._expression,
+        field('right', $._expression),
         optional(choice(';', ',')),
       ),
 
@@ -133,7 +144,7 @@ module.exports = grammar({
         ),
         optional($._retain_modifier),
         optional($._access_modifier),
-        repeat($.var_declaration),
+        repeat(seq(repeat($.pragma_definition), $.var_declaration)),
         caseInsensitive('end_var'),
       ),
 
@@ -193,7 +204,7 @@ module.exports = grammar({
 
     case: $ => seq($.case_value, ':', repeat($._statement)),
 
-    case_value: $ => choice($.integer, $.identifier, $.member_access),
+    case_value: $ => choice($.integer, $.identifier, $._member_access),
 
     else_clause: $ => seq(caseInsensitive('else'), repeat($._statement)),
 
@@ -243,7 +254,7 @@ module.exports = grammar({
     _expression: $ =>
       choice(
         $.identifier,
-        $.member_access,
+        $._member_access,
         $.array_access,
         $._literal,
         $.parenthesis_expression,
@@ -298,28 +309,30 @@ module.exports = grammar({
 
     array_access: $ => seq($.identifier, '[', commaSep1($._expression), ']'),
 
-    member_access: $ =>
+    _member_access: $ =>
       seq(
         $.identifier,
         choice(
           // struct or function_block
-          seq(token.immediate('.'), $.identifier),
+          $.struct_access,
           // enum
-          seq(token.immediate('#'), $.identifier),
+          $.enum_access,
         ),
       ),
 
+    struct_access: $ => (
+      seq(token.immediate('.'), field('member', $.identifier))
+    ),
+
+    enum_access: $ => (
+      seq(token.immediate('#'), field('member', $.identifier))
+    ),
+
     index_range: $ =>
       seq(
-        field(
-          'lowerBound',
-          choice(alias(token(integer), $.integer), $.identifier),
-        ),
+        choice(alias(token(integer), $.integer), $.identifier),
         '..',
-        field(
-          'upperBound',
-          choice(alias(token(integer), $.integer), $.identifier),
-        ),
+        choice(alias(token(integer), $.integer), $.identifier),
       ),
 
     /* variable */
@@ -333,24 +346,24 @@ module.exports = grammar({
         ';',
       ),
 
-    _hw_io: $ => seq(caseInsensitive('at'), /%[iIqQ][xXbBwW]/, $._float),
+    _hw_io: $ => seq(caseInsensitive('at'), /%[iIqQ][xXbBwW]/, $._literal),
 
     /* Data types */
     _data_type: $ => choice($.primitive_type, $.identifier, $.array_type),
 
     primitive_type: $ =>
       choice(
-        'BOOL',
+        caseInsensitive('bool'),
         /U?[SD]?INT/,
         /L?REAL/,
-        'TIME',
-        'DATE',
-        'TIME_OF_DAY',
-        'TOD',
-        'DATE_AND_TIME',
-        'DT',
+        caseInsensitive('time'),
+        caseInsensitive('date'),
+        caseInsensitive('time_of_day'),
+        caseInsensitive('tod'),
+        caseInsensitive('date_and_time'),
+        caseInsensitive('dt'),
         /W?STRING/,
-        'BYTE',
+        caseInsensitive('byte'),
         /D?WORD/,
       ),
 
@@ -369,7 +382,7 @@ module.exports = grammar({
       choice(
         $.boolean,
         $.integer,
-        $.floating_point,
+        $.float,
         $.binary,
         $.octal,
         $.hexidecimal,
@@ -388,30 +401,19 @@ module.exports = grammar({
       return token(integer);
     },
 
-    floating_point: $ => {
-      const scientific = seq(/[eE]/, integer);
-      return token(
-        seq(
-          integer,
-          choice(
-            seq('.', repeat(choice('_', /\d/)), optional(scientific)),
-            scientific,
-          ),
-        ),
-      );
-    },
+    float: $ => /([0-9]+([.][0-9]*)?|[.][0-9]+)/,
 
     binary: $ => token(seq('2#', /_*[0-1]/, repeat(choice('_', /[0-1]/)))),
 
     octal: $ => token(seq('8#', /_*[0-7]/, repeat(choice('_', /[0-7]/)))),
 
-    hexidecimal: $ =>
+    hexadecimal: $ =>
       token(seq('16#', /_*[0-9a-fA-F]/, repeat(choice('_', /[0-9a-fA-F]/)))),
 
     time: $ =>
       token(
         seq(
-          /[tT]/,
+          caseInsensitive('t'),
           '#',
           optional('-'),
           optional(/\d{1,2}[dD]/),
@@ -474,11 +476,11 @@ module.exports = grammar({
 
     identifier: $ => /[a-zA-Z_]\w*/,
 
-    _float: $ => /([0-9]+([.][0-9]*)?|[.][0-9]+)/,
-
     inline_comment: $ => token(seq('//', /.*/)),
 
-    block_comment: $ => token(seq('/*', /[^*]*\*+([^*)][^*]*\*+)*/, '/')),
+    block_comment: $ => token(seq('/*', /[^*]*\*+([^*)][^*]*\*+)*/, '*/')),
+
+    doc_comment: $ => token(seq('///', /.*/)),
   },
 });
 
