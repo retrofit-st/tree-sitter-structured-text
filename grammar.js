@@ -407,7 +407,7 @@ module.exports = grammar({
 
     octal: $ => token(seq('8#', /_*[0-7]/, repeat(choice('_', /[0-7]/)))),
 
-    hexidecimal: $ =>
+    hexadecimal: $ =>
       token(seq('16#', /_*[0-9a-fA-F]/, repeat(choice('_', /[0-9a-fA-F]/)))),
 
     time: $ =>
