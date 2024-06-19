@@ -1951,6 +1951,10 @@
           "named": true
         },
         {
+          "type": "pragma_definition",
+          "named": true
+        },
+        {
           "type": "program_definition",
           "named": true
         },
@@ -2631,6 +2635,10 @@
           "named": true
         },
         {
+          "type": "pragma_definition",
+          "named": true
+        },
+        {
           "type": "program_definition",
           "named": true
         },
@@ -2919,6 +2927,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "pragma_definition",
+          "named": true
+        },
         {
           "type": "var_declaration",
           "named": true
@@ -3218,6 +3230,10 @@
     "named": false
   },
   {
+    "type": "doc_comment",
+    "named": true
+  },
+  {
     "type": "dt",
     "named": false
   },
@@ -3366,6 +3382,10 @@
     "named": true
   },
   {
+    "type": "pragma_definition",
+    "named": true
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -3419,11 +3439,11 @@
   },
   {
     "type": "time_of_day",
-    "named": false
+    "named": true
   },
   {
     "type": "time_of_day",
-    "named": true
+    "named": false
   },
   {
     "type": "to",

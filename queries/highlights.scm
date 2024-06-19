@@ -19,11 +19,19 @@
 (namespace_definition name: (identifier) @namespace) 
 (struct_definition name: (identifier) @struct)
 (enum_definition name: (identifier) @enum) 
+(pragma_definition) @macro
 
 ; comments
 (inline_comment) @comment
 (block_comment) @comment
-;(inline_comment (doc_comment)) @comment.documentation
+(doc_comment) @comment.documentation
+
+
+[
+";"
+"."
+","
+] @punctuation.delimiter
 
 [
 "protected"

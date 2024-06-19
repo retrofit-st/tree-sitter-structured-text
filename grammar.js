@@ -12,7 +12,7 @@ module.exports = grammar({
     [$.enum_definition]
   ],
 
-  extras: $ => [$.inline_comment, $.block_comment, /\s/],
+  extras: $ => [$.inline_comment, $.block_comment, $.doc_comment, /\s/],
 
   rules: {
     source_file: $ => repeat($._definition),
@@ -22,11 +22,17 @@ module.exports = grammar({
         $.namespace_definition,
         $.configuration_definition,
         $.program_definition,
-        $.class_definition,
-        $.function_definition,
-        $.function_block_definition,
+        seq(repeat($.pragma_definition), $.class_definition),
+        seq(repeat($.pragma_definition), $.function_definition),
+        seq(repeat($.pragma_definition), $.function_block_definition),
         $.type_definition,
       ),
+
+    pragma_definition: $ => token(seq(
+      '{',
+      /.*/,
+      '}',
+    )),
 
     namespace_definition: $ =>
       seq(
@@ -138,7 +144,7 @@ module.exports = grammar({
         ),
         optional($._retain_modifier),
         optional($._access_modifier),
-        repeat($.var_declaration),
+        repeat(seq(repeat($.pragma_definition), $.var_declaration)),
         caseInsensitive('end_var'),
       ),
 
@@ -472,7 +478,9 @@ module.exports = grammar({
 
     inline_comment: $ => token(seq('//', /.*/)),
 
-    block_comment: $ => token(seq('/*', /[^*]*\*+([^*)][^*]*\*+)*/, '/')),
+    block_comment: $ => token(seq('/*', /[^*]*\*+([^*)][^*]*\*+)*/, '*/')),
+
+    doc_comment: $ => token(seq('///', /.*/)),
   },
 });
 

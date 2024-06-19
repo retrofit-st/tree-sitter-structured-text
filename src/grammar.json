@@ -25,22 +25,78 @@
           "name": "program_definition"
         },
         {
-          "type": "SYMBOL",
-          "name": "class_definition"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "pragma_definition"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "class_definition"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "function_definition"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "pragma_definition"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "function_definition"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "function_block_definition"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "REPEAT",
+              "content": {
+                "type": "SYMBOL",
+                "name": "pragma_definition"
+              }
+            },
+            {
+              "type": "SYMBOL",
+              "name": "function_block_definition"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
           "name": "type_definition"
         }
       ]
+    },
+    "pragma_definition": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "{"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
+          },
+          {
+            "type": "STRING",
+            "value": "}"
+          }
+        ]
+      }
     },
     "namespace_definition": {
       "type": "SEQ",
@@ -755,8 +811,20 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "var_declaration"
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "REPEAT",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "pragma_definition"
+                }
+              },
+              {
+                "type": "SYMBOL",
+                "name": "var_declaration"
+              }
+            ]
           }
         },
         {
@@ -2984,7 +3052,23 @@
           },
           {
             "type": "STRING",
-            "value": "/"
+            "value": "*/"
+          }
+        ]
+      }
+    },
+    "doc_comment": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "///"
+          },
+          {
+            "type": "PATTERN",
+            "value": ".*"
           }
         ]
       }
@@ -2998,6 +3082,10 @@
     {
       "type": "SYMBOL",
       "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "doc_comment"
     },
     {
       "type": "PATTERN",

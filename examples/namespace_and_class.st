@@ -14,11 +14,13 @@ NAMESPACE TestNamespaceAndClass
         );
     END_TYPE
     
+    {testclass pragma}
     CLASS TestClass
         VAR
             staticVar : BOOL;
         END_VAR
 
+        /// Documentation comment to describe the function
         METHOD PUBLIC TestMethod : INT
             // Input variables of method
             VAR_INPUT
