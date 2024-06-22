@@ -8,8 +8,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$._expression, $.call_expression],
     [$.call_expression],
-    [$.case],
-    [$.enum_definition]
+    [$.case]
   ],
 
   extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, /\s/],
@@ -107,7 +106,7 @@ module.exports = grammar({
         '(',
         choice(commaSep1(field('enumeration', $.identifier)), repeat1($.assignment)),
         ')',
-        optional($.assignment),
+        choice(';', $.assignment),
       ),
 
     _statement: $ =>

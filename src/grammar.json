@@ -572,11 +572,12 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "assignment"
+              "type": "STRING",
+              "value": ";"
             },
             {
-              "type": "BLANK"
+              "type": "SYMBOL",
+              "name": "assignment"
             }
           ]
         }
@@ -3110,9 +3111,6 @@
     ],
     [
       "case"
-    ],
-    [
-      "enum_definition"
     ]
   ],
   "precedences": [],

@@ -118,3 +118,25 @@ END_TYPE
         (integer))
       (assignment
         (identifier)))))
+
+==================
+Enum w/o default Types
+==================
+
+TYPE COLOR :
+(
+    red,
+    yellow,
+    green
+);
+END_TYPE
+
+---
+
+(source_file
+  (type_definition
+    (enum_definition
+      (identifier)
+      (identifier)
+      (identifier)
+      (identifier))))
