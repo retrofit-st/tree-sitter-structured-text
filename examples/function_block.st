@@ -1,7 +1,7 @@
 NAMESPACE Test.FB
-    /*=======================================================================
+    (*=======================================================================
     Function Block Timed Counter :  Incremental count of the timed interval
-    =======================================================================*/
+    =======================================================================*)
     FUNCTION_BLOCK FB_Timed_Counter
         VAR_INPUT
             Execute         : BOOL := FALSE;        // Trigger signal to begin Timed Counting

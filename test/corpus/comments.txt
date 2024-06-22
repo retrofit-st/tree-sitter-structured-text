@@ -1,0 +1,47 @@
+==================
+Single line comment
+==================
+
+PROGRAM testProgram
+    // this is a single line comment
+END_PROGRAM
+
+---
+
+(source_file
+  (program_definition
+    (identifier)
+    (inline_comment)))
+
+==================
+doc comment
+==================
+
+/// this is a doc comment
+ClASS testClass
+END_CLASS
+
+---
+
+(source_file
+  (doc_comment)
+  (class_definition
+    (identifier)))
+
+==================
+block comment
+==================
+
+PROGRAM testProgram
+    (* 
+    This is a multiline comment.
+    It spans more than one line.
+    *)
+END_PROGRAM
+
+---
+
+(source_file
+  (program_definition
+    (identifier)
+    (block_comment)))

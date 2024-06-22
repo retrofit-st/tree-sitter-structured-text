@@ -12,7 +12,7 @@ module.exports = grammar({
     [$.enum_definition]
   ],
 
-  extras: $ => [$.inline_comment, $.block_comment, $.doc_comment, /\s/],
+  extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, /\s/],
 
   rules: {
     source_file: $ => repeat($._definition),
@@ -37,7 +37,7 @@ module.exports = grammar({
     namespace_definition: $ =>
       seq(
         caseInsensitive('namespace'),
-        field('name', seq($.identifier, optional(repeat(seq(token.immediate('.'), $.identifier))))),
+        field('name', repeat(seq(optional(token.immediate('.')), $.identifier))),
         repeat($._definition),
         caseInsensitive('end_namespace'),
       ),
@@ -263,7 +263,7 @@ module.exports = grammar({
         $.call_expression,
       ),
 
-    parenthesis_expression: $ => seq('(', $._expression, ')'),
+    parenthesis_expression: $ => prec(1, seq('(', $._expression, ')')),
 
     unary_expression: $ =>
       prec(
@@ -385,7 +385,7 @@ module.exports = grammar({
         $.float,
         $.binary,
         $.octal,
-        $.hexidecimal,
+        $.hexadecimal,
         $.time,
         $.date,
         $.time_of_day,
@@ -476,11 +476,19 @@ module.exports = grammar({
 
     identifier: $ => /[a-zA-Z_]\w*/,
 
-    inline_comment: $ => token(seq('//', /.*/)),
+    inline_comment: $ => seq(
+      '//',
+      token.immediate(prec(1, /.*/))
+    ),
 
-    block_comment: $ => token(seq('/*', /[^*]*\*+([^*)][^*]*\*+)*/, '*/')),
+    doc_comment: $ => seq('//', token.immediate(prec(2, '/')), /.*/),
 
-    doc_comment: $ => token(seq('///', /.*/)),
+    // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
+    block_comment: $ => prec(2, seq(
+      '(*',
+      /[^*]*\*+([^*)][^*]*\*+)*/,
+      ')'
+    )),
   },
 });
 

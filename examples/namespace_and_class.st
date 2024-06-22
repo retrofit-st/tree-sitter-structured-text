@@ -12,6 +12,11 @@ NAMESPACE TestNamespaceAndClass
             BLUE,
             YELLOW
         );
+
+        TestStruct : STRUCT
+            structMember1 : REAL;
+            structMember2 : DINT;
+        END_STRUCT
     END_TYPE
     
     {testclass pragma}
