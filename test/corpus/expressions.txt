@@ -159,13 +159,13 @@ END_FUNCTION_BLOCK
         (boolean_expression
           (identifier)
           (unary_expression
-            (identifier)
             (struct_access
-                (identifier)))))
+              (identifier)
+              (identifier)))))
       (parameter_assignment
         (parameter)
         (identifier)))
     (identifier)
-      (identifier)
       (struct_access
+        (identifier)
         (identifier))))

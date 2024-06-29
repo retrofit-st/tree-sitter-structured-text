@@ -134,8 +134,8 @@ END_FUNCTION_BLOCK
         (integer))
       (case
         (case_value
-        (identifier)
         (enum_access
+          (identifier)
           (identifier)))
         (identifier)
         (boolean)

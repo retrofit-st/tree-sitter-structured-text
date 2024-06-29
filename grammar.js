@@ -8,24 +8,34 @@ module.exports = grammar({
   conflicts: $ => [
     [$._expression, $.call_expression],
     [$.call_expression],
-    [$.case]
+    [$.case],
   ],
 
-  extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, /\s/],
+  extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, $.pragma_definition, /\s/],
 
   rules: {
-    source_file: $ => repeat($._definition),
+    source_file: $ => repeat(
+      choice(
+        $.import_statement,
+        $._definition
+      )
+    ),
 
     _definition: $ =>
       choice(
         $.namespace_definition,
         $.configuration_definition,
         $.program_definition,
-        seq(repeat($.pragma_definition), $.class_definition),
-        seq(repeat($.pragma_definition), $.function_definition),
-        seq(repeat($.pragma_definition), $.function_block_definition),
+        $.class_definition,
+        $.function_definition,
+        $.function_block_definition,
         $.type_definition,
       ),
+
+    import_statement: $ => seq(
+      caseInsensitive('using'),
+      repeat(seq(token.immediate('.'), $.identifier))
+    ),
 
     pragma_definition: $ => token(seq(
       '{',
@@ -203,7 +213,7 @@ module.exports = grammar({
 
     case: $ => seq($.case_value, ':', repeat($._statement)),
 
-    case_value: $ => choice($.integer, $.identifier, $._member_access),
+    case_value: $ => choice($.integer, $.identifier, $.enum_access),
 
     else_clause: $ => seq(caseInsensitive('else'), repeat($._statement)),
 
@@ -253,7 +263,8 @@ module.exports = grammar({
     _expression: $ =>
       choice(
         $.identifier,
-        $._member_access,
+        $.struct_access,
+        $.enum_access,
         $.array_access,
         $._literal,
         $.parenthesis_expression,
@@ -308,23 +319,21 @@ module.exports = grammar({
 
     array_access: $ => seq($.identifier, '[', commaSep1($._expression), ']'),
 
-    _member_access: $ =>
-      seq(
-        $.identifier,
-        choice(
-          // struct or function_block
-          $.struct_access,
-          // enum
-          $.enum_access,
-        ),
-      ),
-
     struct_access: $ => (
-      seq(token.immediate('.'), field('member', $.identifier))
+      seq(
+        field('name', $.identifier),
+        repeat1(seq(token.immediate('.'),
+          field('member', $.identifier))
+        )
+      )
     ),
 
     enum_access: $ => (
-      seq(token.immediate('#'), field('member', $.identifier))
+      seq(
+        field('name', $.identifier),
+        token.immediate('#'),
+        field('member', $.identifier)
+      )
     ),
 
     index_range: $ =>

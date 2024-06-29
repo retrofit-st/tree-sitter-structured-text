@@ -5,8 +5,17 @@
     "source_file": {
       "type": "REPEAT",
       "content": {
-        "type": "SYMBOL",
-        "name": "_definition"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "import_statement"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_definition"
+          }
+        ]
       }
     },
     "_definition": {
@@ -25,56 +34,53 @@
           "name": "program_definition"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "pragma_definition"
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "class_definition"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "class_definition"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "pragma_definition"
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "function_definition"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "function_definition"
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "REPEAT",
-              "content": {
-                "type": "SYMBOL",
-                "name": "pragma_definition"
-              }
-            },
-            {
-              "type": "SYMBOL",
-              "name": "function_block_definition"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "function_block_definition"
         },
         {
           "type": "SYMBOL",
           "name": "type_definition"
+        }
+      ]
+    },
+    "import_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "PATTERN",
+            "value": "[uU][sS][iI][nN][gG]"
+          },
+          "named": false,
+          "value": "using"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "."
+                }
+              },
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              }
+            ]
+          }
         }
       ]
     },
@@ -1153,7 +1159,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_member_access"
+          "name": "enum_access"
         }
       ]
     },
@@ -1429,7 +1435,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "_member_access"
+          "name": "struct_access"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enum_access"
         },
         {
           "type": "SYMBOL",
@@ -2027,44 +2037,38 @@
         }
       ]
     },
-    "_member_access": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "struct_access"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "enum_access"
-            }
-          ]
-        }
-      ]
-    },
     "struct_access": {
       "type": "SEQ",
       "members": [
         {
-          "type": "IMMEDIATE_TOKEN",
-          "content": {
-            "type": "STRING",
-            "value": "."
-          }
-        },
-        {
           "type": "FIELD",
-          "name": "member",
+          "name": "name",
           "content": {
             "type": "SYMBOL",
             "name": "identifier"
+          }
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "IMMEDIATE_TOKEN",
+                "content": {
+                  "type": "STRING",
+                  "value": "."
+                }
+              },
+              {
+                "type": "FIELD",
+                "name": "member",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                }
+              }
+            ]
           }
         }
       ]
@@ -2072,6 +2076,14 @@
     "enum_access": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
         {
           "type": "IMMEDIATE_TOKEN",
           "content": {
@@ -3095,6 +3107,10 @@
     {
       "type": "SYMBOL",
       "name": "block_comment"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "pragma_definition"
     },
     {
       "type": "PATTERN",

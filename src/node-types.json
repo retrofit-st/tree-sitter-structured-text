@@ -132,7 +132,7 @@
         ]
       },
       "right": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -583,7 +583,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -596,10 +596,6 @@
         },
         {
           "type": "integer",
-          "named": true
-        },
-        {
-          "type": "struct_access",
           "named": true
         }
       ]
@@ -1015,7 +1011,7 @@
     "named": true,
     "fields": {
       "elsifCondition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -1225,6 +1221,16 @@
     "named": true,
     "fields": {
       "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
         "multiple": false,
         "required": true,
         "types": [
@@ -1680,7 +1686,7 @@
     "named": true,
     "fields": {
       "condition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -1894,6 +1900,21 @@
     }
   },
   {
+    "type": "import_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "index_range",
     "named": true,
     "fields": {},
@@ -1963,10 +1984,6 @@
         },
         {
           "type": "namespace_definition",
-          "named": true
-        },
-        {
-          "type": "pragma_definition",
           "named": true
         },
         {
@@ -2080,7 +2097,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -2416,7 +2433,7 @@
     "named": true,
     "fields": {
       "terminationCondition": {
-        "multiple": true,
+        "multiple": false,
         "required": true,
         "types": [
           {
@@ -2646,11 +2663,11 @@
           "named": true
         },
         {
-          "type": "namespace_definition",
+          "type": "import_statement",
           "named": true
         },
         {
-          "type": "pragma_definition",
+          "type": "namespace_definition",
           "named": true
         },
         {
@@ -2669,6 +2686,16 @@
     "named": true,
     "fields": {
       "member": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "name": {
         "multiple": false,
         "required": true,
         "types": [
@@ -2749,7 +2776,7 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -3470,6 +3497,10 @@
   },
   {
     "type": "until",
+    "named": false
+  },
+  {
+    "type": "using",
     "named": false
   },
   {
