@@ -22,18 +22,12 @@
 (pragma_declaration) @macro
 
 (var_input_declaration (var_declaration name: (identifier) @parameter))
-(var_output_declaration (var_declaration name: (identifier) @parameter))
+(var_output_declaration (var_declaration name: (identifier) @parameter.modification))
 (var_in_out_declaration (var_declaration name: (identifier) @parameter))
 (var_global_declaration (var_declaration name: (identifier) @variable))
 (var_temp_declaration (var_declaration name: (identifier) @variable))
 (var_external_declaration (var_declaration name: (identifier) @variable))
 (var_static_declaration (var_declaration name: (identifier) @variable.static))
-
-((identifier) @function.declaration
- (#is-not? local))
-
-((identifier) @class.declaration
- (#is-not? local))
 
 ; comments
 (inline_comment) @comment
