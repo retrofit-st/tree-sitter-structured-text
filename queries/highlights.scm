@@ -23,7 +23,7 @@
 
 (var_declaration name: (identifier) @variable.parameter)
 
-((identifier) @function.declaration
+((identifier) @function
  (#is-not? local))
 
 ; comments
