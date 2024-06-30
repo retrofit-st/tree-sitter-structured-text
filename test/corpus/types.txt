@@ -21,46 +21,46 @@ END_TYPE
   (type_declaration
     (struct_declaration
       (identifier)
-      (var_definition
+      (var_declaration
         (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_definition
+          (var_declaration
             (identifier)
             (array_type
               (primitive_type)))
-          (var_definition
-            (identifier)
-            (array_type
-              (index_range
-                (integer)
-                (integer))
-              (primitive_type)))
-          (var_definition
+          (var_declaration
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_definition
+          (var_declaration
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_definition
+          (var_declaration
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_definition
+          (var_declaration
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_declaration
             (identifier)
             (primitive_type)
             (boolean)))))

@@ -47,18 +47,18 @@ END_CONFIGURATION
 (source_file
   (configuration_declaration
     (identifier)
-        (var_statement
-          (var_definition
+        (var_global_declaration
+          (var_declaration
             (identifier)
             (primitive_type))
-          (var_definition
+          (var_declaration
             (identifier)
             (primitive_type))
-          (var_definition
+          (var_declaration
             (identifier)
             (float)
             (primitive_type))
-          (var_definition
+          (var_declaration
             (identifier)
             (float)
             (primitive_type)))
@@ -105,8 +105,8 @@ END_FUNCTION
   (function_declaration
     (identifier)
     (primitive_type)
-    (var_statement
-      (var_definition
+    (var_temp_declaration
+      (var_declaration
         (identifier)
         (primitive_type)
         (integer)))
@@ -202,8 +202,8 @@ END_NAMESPACE
     (pragma_declaration)
     (function_block_declaration
       (identifier)
-      (var_statement
+      (var_static_declaration
         (pragma_declaration)
-        (var_definition
+        (var_declaration
           (identifier)
           (primitive_type))))))

@@ -121,7 +121,7 @@ module.exports = grammar({
 
     _statement: $ =>
       choice(
-        $.var_statement,
+        $._var_declarations,
         $.task_statement,
         $.program_statement,
         $._control_statement,
@@ -140,22 +140,68 @@ module.exports = grammar({
         optional(choice(';', ',')),
       ),
 
-    var_statement: $ =>
+    _var_declarations: $ =>
       seq(
         choice(
-          caseInsensitive('var_input'),
-          caseInsensitive('var_output'),
-          caseInsensitive('var_in_out'),
-          caseInsensitive('var_global'),
-          caseInsensitive('var_temp'),
-          caseInsensitive('var_external'),
-          caseInsensitive('var'),
+          $.var_input_declaration,
+          $.var_output_declaration,
+          $.var_in_out_declaration,
+          $.var_global_declaration,
+          $.var_temp_declaration,
+          $.var_external_declaration,
+          $.var_static_declaration
         ),
-        optional($._retain_modifier),
-        optional($._access_modifier),
-        repeat(seq(repeat($.pragma_declaration), $.var_declaration)),
         caseInsensitive('end_var'),
       ),
+
+    var_input_declaration: $ => seq(
+      caseInsensitive('var_input'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('inputs', $.var_declaration)),
+    ),
+
+    var_output_declaration: $ => seq(
+      caseInsensitive('var_output'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('outputs', $.var_declaration)),
+    ),
+
+    var_in_out_declaration: $ => seq(
+      caseInsensitive('var_in_out'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('in_outs', $.var_declaration)),
+    ),
+
+    var_global_declaration: $ => seq(
+      caseInsensitive('var_global'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('globals', $.var_declaration)),
+    ),
+
+    var_temp_declaration: $ => seq(
+      caseInsensitive('var_temp'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('temps', $.var_declaration)),
+    ),
+
+    var_external_declaration: $ => seq(
+      caseInsensitive('var_external'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('externals', $.var_declaration)),
+    ),
+
+    var_static_declaration: $ => seq(
+      caseInsensitive('var'),
+      optional($._retain_modifier),
+      optional($._access_modifier),
+      repeat(field('statics', $.var_declaration)),
+    ),
 
     task_statement: $ =>
       seq(
@@ -346,7 +392,7 @@ module.exports = grammar({
     /* variable */
     var_declaration: $ =>
       seq(
-        $.identifier,
+        field('name', $.identifier),
         optional($._hw_io),
         ':',
         $._data_type,

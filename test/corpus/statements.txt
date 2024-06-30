@@ -14,11 +14,11 @@ END_PROGRAM
 (source_file
   (program_declaration
     (identifier)
-    (var_statement
-        (var_definition
+    (var_static_declaration
+        (var_declaration
           (identifier)
           (primitive_type))
-        (var_definition
+        (var_declaration
           (identifier)
           (primitive_type)))))
 
@@ -51,15 +51,15 @@ END_FUNCTION_BLOCK
 (source_file
   (function_block_declaration
     (identifier)
-    (var_statement
-        (var_definition
+    (var_in_out_declaration
+        (var_declaration
           (identifier)
           (primitive_type)))
-    (var_statement
-        (var_definition
+    (var_temp_declaration
+        (var_declaration
           (identifier)
           (primitive_type))
-        (var_definition
+        (var_declaration
           (identifier)
           (primitive_type)))
     (if_statement
@@ -110,16 +110,16 @@ END_FUNCTION_BLOCK
 (source_file
   (function_block_declaration
     (identifier)
-    (var_statement
-        (var_definition
+    (var_in_out_declaration
+        (var_declaration
           (identifier)
           (primitive_type)))
-    (var_statement
-        (var_definition
+    (var_static_declaration
+        (var_declaration
           (identifier)
           (primitive_type)))
-    (var_statement
-        (var_definition
+    (var_static_declaration
+        (var_declaration
           (identifier)
           (primitive_type)
           (integer)))
@@ -173,12 +173,12 @@ END_FUNCTION_BLOCK
 (source_file
   (function_block_declaration
     (identifier)
-    (var_statement
-        (var_definition
+    (var_in_out_declaration
+        (var_declaration
           (identifier)
           (primitive_type)))
-    (var_statement
-        (var_definition
+    (var_static_declaration
+        (var_declaration
           (identifier)
           (primitive_type)))
     (for_statement
@@ -218,11 +218,11 @@ END_FUNCTION_BLOCK
 (source_file
   (function_block_declaration
     (identifier)
-    (var_statement
-        (var_definition
+    (var_static_declaration
+        (var_declaration
           (identifier)
           (primitive_type))
-        (var_definition
+        (var_declaration
           (identifier)
           (primitive_type)))
     (identifier)
@@ -269,11 +269,11 @@ END_FUNCTION_BLOCK
 (source_file
   (function_block_declaration
     (identifier)
-    (var_statement
-      (var_definition
+    (var_static_declaration
+      (var_declaration
         (identifier)
         (primitive_type))
-      (var_definition
+      (var_declaration
         (identifier)
         (primitive_type)))
     (identifier)
