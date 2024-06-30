@@ -534,7 +534,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -725,7 +749,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -859,7 +907,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -992,7 +1064,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -1202,7 +1298,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -1391,7 +1511,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -1525,7 +1669,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -1667,7 +1835,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -1885,7 +2077,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -2308,7 +2524,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -2624,7 +2864,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -2865,7 +3129,18 @@
   {
     "type": "var_declaration",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
@@ -2962,22 +3237,115 @@
     }
   },
   {
-    "type": "var_statement",
+    "type": "var_external_declaration",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "pragma_declaration",
-          "named": true
-        },
-        {
-          "type": "var_declaration",
-          "named": true
-        }
-      ]
+    "fields": {
+      "externals": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_global_declaration",
+    "named": true,
+    "fields": {
+      "globals": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_in_out_declaration",
+    "named": true,
+    "fields": {
+      "in_outs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_input_declaration",
+    "named": true,
+    "fields": {
+      "inputs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_output_declaration",
+    "named": true,
+    "fields": {
+      "outputs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_static_declaration",
+    "named": true,
+    "fields": {
+      "statics": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "var_temp_declaration",
+    "named": true,
+    "fields": {
+      "temps": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "var_declaration",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -3089,7 +3457,31 @@
           "named": true
         },
         {
-          "type": "var_statement",
+          "type": "var_external_declaration",
+          "named": true
+        },
+        {
+          "type": "var_global_declaration",
+          "named": true
+        },
+        {
+          "type": "var_in_out_declaration",
+          "named": true
+        },
+        {
+          "type": "var_input_declaration",
+          "named": true
+        },
+        {
+          "type": "var_output_declaration",
+          "named": true
+        },
+        {
+          "type": "var_static_declaration",
+          "named": true
+        },
+        {
+          "type": "var_temp_declaration",
           "named": true
         },
         {
@@ -3261,11 +3653,11 @@
   },
   {
     "type": "date",
-    "named": false
+    "named": true
   },
   {
     "type": "date",
-    "named": true
+    "named": false
   },
   {
     "type": "date_and_time",

@@ -2,8 +2,6 @@
 ; This way it's easier to map them in an lsp implementation. This could change 
 ; in the future, but for now it's easier to deal with.
 
-; Identifiers
-
 (identifier) @variable
 (primitive_type) @type
 (struct_access name: (identifier) @struct)
@@ -11,11 +9,7 @@
 (struct_access member: (identifier) @property)
 (enum_access member: (identifier) @enumMember)
 
-; Function calls
-
 (call_expression name: (identifier) @function)
-
-; definitions
 
 (configuration_declaration name: (identifier) @type.declaration)
 (program_declaration name: (identifier) @type.declaration)
@@ -26,6 +20,11 @@
 (struct_declaration name: (identifier) @struct.declaration)
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro
+
+(var_declaration name: (identifier) @variable.parameter)
+
+((identifier) @function.declaration
+ (#is-not? local))
 
 ; comments
 (inline_comment) @comment
