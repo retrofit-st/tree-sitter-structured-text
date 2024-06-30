@@ -21,7 +21,7 @@
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro
 
-(var_declaration name: (identifier) @variable.parameter)
+(var_declaration name: (identifier) @parameter)
 
 ((identifier) @function
  (#is-not? local))
