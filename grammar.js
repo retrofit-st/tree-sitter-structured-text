@@ -34,7 +34,9 @@ module.exports = grammar({
 
     import_statement: $ => seq(
       caseInsensitive('using'),
-      repeat(seq(token.immediate('.'), $.identifier))
+      $.identifier,
+      repeat(seq(token.immediate('.'), $.identifier)),
+      ';'
     ),
 
     pragma_declaration: $ => token(seq(

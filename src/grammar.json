@@ -64,6 +64,10 @@
           "value": "using"
         },
         {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
           "type": "REPEAT",
           "content": {
             "type": "SEQ",
@@ -81,6 +85,10 @@
               }
             ]
           }
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
