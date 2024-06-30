@@ -9,6 +9,7 @@
 (enum_access name: (identifier) @enum)
 (struct_access member: (identifier) @property)
 (enum_access member: (identifier) @enumMember)
+(import_statement (identifier) @type)
 
 (call_expression name: (identifier) @function)
 
