@@ -3,7 +3,8 @@
 ; in the future, but for now it's easier to deal with.
 
 (identifier) @variable
-(primitive_type) @type
+(primitive_type) @type.defaultLibrary
+(var_declaration type: (identifier) @type)
 (struct_access name: (identifier) @struct)
 (enum_access name: (identifier) @enum)
 (struct_access member: (identifier) @property)

@@ -3139,18 +3139,32 @@
             "named": true
           }
         ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array_type",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "primitive_type",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "array_access",
-          "named": true
-        },
-        {
-          "type": "array_type",
           "named": true
         },
         {
@@ -3203,10 +3217,6 @@
         },
         {
           "type": "parenthesis_expression",
-          "named": true
-        },
-        {
-          "type": "primitive_type",
           "named": true
         },
         {
