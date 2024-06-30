@@ -21,9 +21,9 @@
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro
 
-(var_input_declaration (var_declaration name: (identifier) @variable.parameter))
-(var_output_declaration (var_declaration name: (identifier) @variable.parameter))
-(var_in_out_declaration (var_declaration name: (identifier) @variable.parameter))
+(var_input_declaration (var_declaration name: (identifier) @parameter))
+(var_output_declaration (var_declaration name: (identifier) @parameter))
+(var_in_out_declaration (var_declaration name: (identifier) @parameter))
 (var_global_declaration (var_declaration name: (identifier) @variable))
 (var_temp_declaration (var_declaration name: (identifier) @variable))
 (var_external_declaration (var_declaration name: (identifier) @variable))
