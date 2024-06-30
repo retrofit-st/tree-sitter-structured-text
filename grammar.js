@@ -11,25 +11,25 @@ module.exports = grammar({
     [$.case],
   ],
 
-  extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, $.pragma_definition, /\s/],
+  extras: $ => [$.inline_comment, $.doc_comment, $.block_comment, $.pragma_declaration, /\s/],
 
   rules: {
     source_file: $ => repeat(
       choice(
         $.import_statement,
-        $._definition
+        $._declaration
       )
     ),
 
-    _definition: $ =>
+    _declaration: $ =>
       choice(
-        $.namespace_definition,
-        $.configuration_definition,
-        $.program_definition,
-        $.class_definition,
-        $.function_definition,
-        $.function_block_definition,
-        $.type_definition,
+        $.namespace_declaration,
+        $.configuration_declaration,
+        $.program_declaration,
+        $.class_declaration,
+        $.function_declaration,
+        $.function_block_declaration,
+        $.type_declaration,
       ),
 
     import_statement: $ => seq(
@@ -37,29 +37,29 @@ module.exports = grammar({
       repeat(seq(token.immediate('.'), $.identifier))
     ),
 
-    pragma_definition: $ => token(seq(
+    pragma_declaration: $ => token(seq(
       '{',
       /.*/,
       '}',
     )),
 
-    namespace_definition: $ =>
+    namespace_declaration: $ =>
       seq(
         caseInsensitive('namespace'),
         field('name', repeat(seq(optional(token.immediate('.')), $.identifier))),
-        repeat($._definition),
+        repeat($._declaration),
         caseInsensitive('end_namespace'),
       ),
 
-    class_definition: $ =>
+    class_declaration: $ =>
       seq(
         caseInsensitive('class'),
         field('name', $.identifier),
-        repeat(choice($._statement, $.function_definition)),
+        repeat(choice($._statement, $.function_declaration)),
         caseInsensitive('end_class'),
       ),
 
-    configuration_definition: $ =>
+    configuration_declaration: $ =>
       seq(
         caseInsensitive('configuration'),
         field('name', $.identifier),
@@ -67,7 +67,7 @@ module.exports = grammar({
         caseInsensitive('end_configuration'),
       ),
 
-    program_definition: $ =>
+    program_declaration: $ =>
       seq(
         caseInsensitive('program'),
         field('name', $.identifier),
@@ -75,7 +75,7 @@ module.exports = grammar({
         caseInsensitive('end_program'),
       ),
 
-    function_definition: $ =>
+    function_declaration: $ =>
       seq(
         choice(caseInsensitive('function'), caseInsensitive('method')),
         optional($._access_modifier),
@@ -85,7 +85,7 @@ module.exports = grammar({
         choice(caseInsensitive('end_function'), caseInsensitive('end_method')),
       ),
 
-    function_block_definition: $ =>
+    function_block_declaration: $ =>
       seq(
         caseInsensitive('function_block'),
         field('name', $.identifier),
@@ -93,14 +93,14 @@ module.exports = grammar({
         caseInsensitive('end_function_block'),
       ),
 
-    type_definition: $ =>
+    type_declaration: $ =>
       seq(
         caseInsensitive('type'),
-        repeat(choice($.struct_definition, $.enum_definition)),
+        repeat(choice($.struct_declaration, $.enum_declaration)),
         caseInsensitive('end_type'),
       ),
 
-    struct_definition: $ =>
+    struct_declaration: $ =>
       seq(
         field('name', $.identifier),
         ':',
@@ -109,7 +109,7 @@ module.exports = grammar({
         caseInsensitive('end_struct'),
       ),
 
-    enum_definition: $ =>
+    enum_declaration: $ =>
       seq(
         field('name', $.identifier),
         ':',
@@ -153,7 +153,7 @@ module.exports = grammar({
         ),
         optional($._retain_modifier),
         optional($._access_modifier),
-        repeat(seq(repeat($.pragma_definition), $.var_declaration)),
+        repeat(seq(repeat($.pragma_declaration), $.var_declaration)),
         caseInsensitive('end_var'),
       ),
 

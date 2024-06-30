@@ -602,7 +602,7 @@
     }
   },
   {
-    "type": "class_definition",
+    "type": "class_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -665,7 +665,7 @@
           "named": true
         },
         {
-          "type": "function_definition",
+          "type": "function_declaration",
           "named": true
         },
         {
@@ -740,7 +740,7 @@
     }
   },
   {
-    "type": "configuration_definition",
+    "type": "configuration_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -1243,7 +1243,7 @@
     }
   },
   {
-    "type": "enum_definition",
+    "type": "enum_declaration",
     "named": true,
     "fields": {
       "enumeration": {
@@ -1406,7 +1406,7 @@
     }
   },
   {
-    "type": "function_block_definition",
+    "type": "function_block_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -1540,7 +1540,7 @@
     }
   },
   {
-    "type": "function_definition",
+    "type": "function_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -1944,7 +1944,7 @@
     "fields": {}
   },
   {
-    "type": "namespace_definition",
+    "type": "namespace_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -1967,31 +1967,31 @@
       "required": false,
       "types": [
         {
-          "type": "class_definition",
+          "type": "class_declaration",
           "named": true
         },
         {
-          "type": "configuration_definition",
+          "type": "configuration_declaration",
           "named": true
         },
         {
-          "type": "function_block_definition",
+          "type": "function_block_declaration",
           "named": true
         },
         {
-          "type": "function_definition",
+          "type": "function_declaration",
           "named": true
         },
         {
-          "type": "namespace_definition",
+          "type": "namespace_declaration",
           "named": true
         },
         {
-          "type": "program_definition",
+          "type": "program_declaration",
           "named": true
         },
         {
-          "type": "type_definition",
+          "type": "type_declaration",
           "named": true
         }
       ]
@@ -2189,7 +2189,7 @@
     "fields": {}
   },
   {
-    "type": "program_definition",
+    "type": "program_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -2647,19 +2647,19 @@
       "required": false,
       "types": [
         {
-          "type": "class_definition",
+          "type": "class_declaration",
           "named": true
         },
         {
-          "type": "configuration_definition",
+          "type": "configuration_declaration",
           "named": true
         },
         {
-          "type": "function_block_definition",
+          "type": "function_block_declaration",
           "named": true
         },
         {
-          "type": "function_definition",
+          "type": "function_declaration",
           "named": true
         },
         {
@@ -2667,15 +2667,15 @@
           "named": true
         },
         {
-          "type": "namespace_definition",
+          "type": "namespace_declaration",
           "named": true
         },
         {
-          "type": "program_definition",
+          "type": "program_declaration",
           "named": true
         },
         {
-          "type": "type_definition",
+          "type": "type_declaration",
           "named": true
         }
       ]
@@ -2708,7 +2708,7 @@
     }
   },
   {
-    "type": "struct_definition",
+    "type": "struct_declaration",
     "named": true,
     "fields": {
       "name": {
@@ -2753,7 +2753,7 @@
     }
   },
   {
-    "type": "type_definition",
+    "type": "type_declaration",
     "named": true,
     "fields": {},
     "children": {
@@ -2761,11 +2761,11 @@
       "required": false,
       "types": [
         {
-          "type": "enum_definition",
+          "type": "enum_declaration",
           "named": true
         },
         {
-          "type": "struct_definition",
+          "type": "struct_declaration",
           "named": true
         }
       ]
@@ -2970,7 +2970,7 @@
       "required": false,
       "types": [
         {
-          "type": "pragma_definition",
+          "type": "pragma_declaration",
           "named": true
         },
         {
@@ -3420,7 +3420,7 @@
     "named": true
   },
   {
-    "type": "pragma_definition",
+    "type": "pragma_declaration",
     "named": true
   },
   {

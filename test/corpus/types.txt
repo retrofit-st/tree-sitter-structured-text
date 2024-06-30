@@ -18,49 +18,49 @@ END_TYPE
 ---
 
 (source_file
-  (type_definition
-    (struct_definition
+  (type_declaration
+    (struct_declaration
       (identifier)
-      (var_declaration
+      (var_definition
         (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_declaration
+          (var_definition
             (identifier)
             (array_type
               (primitive_type)))
-          (var_declaration
-            (identifier)
-            (array_type
-              (index_range
-                (integer)
-                (integer))
-              (primitive_type)))
-          (var_declaration
+          (var_definition
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_declaration
+          (var_definition
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_declaration
+          (var_definition
             (identifier)
             (array_type
               (index_range
                 (integer)
                 (integer))
               (primitive_type)))
-          (var_declaration
+          (var_definition
+            (identifier)
+            (array_type
+              (index_range
+                (integer)
+                (integer))
+              (primitive_type)))
+          (var_definition
             (identifier)
             (primitive_type)
             (boolean)))))
@@ -80,8 +80,8 @@ END_TYPE
 ---
 
 (source_file
-  (type_definition
-    (enum_definition
+  (type_declaration
+    (enum_declaration
       (identifier)
       (identifier)
       (identifier)
@@ -104,8 +104,8 @@ END_TYPE
 ---
 
 (source_file
-  (type_definition
-    (enum_definition
+  (type_declaration
+    (enum_declaration
       (identifier)
       (assignment
         (identifier)
@@ -134,8 +134,8 @@ END_TYPE
 ---
 
 (source_file
-  (type_definition
-    (enum_definition
+  (type_declaration
+    (enum_declaration
       (identifier)
       (identifier)
       (identifier)

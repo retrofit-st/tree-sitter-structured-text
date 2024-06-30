@@ -13,41 +13,41 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_definition"
+            "name": "_declaration"
           }
         ]
       }
     },
-    "_definition": {
+    "_declaration": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "namespace_definition"
+          "name": "namespace_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "configuration_definition"
+          "name": "configuration_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "program_definition"
+          "name": "program_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "class_definition"
+          "name": "class_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "function_definition"
+          "name": "function_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "function_block_definition"
+          "name": "function_block_declaration"
         },
         {
           "type": "SYMBOL",
-          "name": "type_definition"
+          "name": "type_declaration"
         }
       ]
     },
@@ -84,7 +84,7 @@
         }
       ]
     },
-    "pragma_definition": {
+    "pragma_declaration": {
       "type": "TOKEN",
       "content": {
         "type": "SEQ",
@@ -104,7 +104,7 @@
         ]
       }
     },
-    "namespace_definition": {
+    "namespace_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -151,7 +151,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_definition"
+            "name": "_declaration"
           }
         },
         {
@@ -165,7 +165,7 @@
         }
       ]
     },
-    "class_definition": {
+    "class_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -196,7 +196,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "function_definition"
+                "name": "function_declaration"
               }
             ]
           }
@@ -212,7 +212,7 @@
         }
       ]
     },
-    "configuration_definition": {
+    "configuration_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -250,7 +250,7 @@
         }
       ]
     },
-    "program_definition": {
+    "program_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -288,7 +288,7 @@
         }
       ]
     },
-    "function_definition": {
+    "function_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -387,7 +387,7 @@
         }
       ]
     },
-    "function_block_definition": {
+    "function_block_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -425,7 +425,7 @@
         }
       ]
     },
-    "type_definition": {
+    "type_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -444,11 +444,11 @@
             "members": [
               {
                 "type": "SYMBOL",
-                "name": "struct_definition"
+                "name": "struct_declaration"
               },
               {
                 "type": "SYMBOL",
-                "name": "enum_definition"
+                "name": "enum_declaration"
               }
             ]
           }
@@ -464,7 +464,7 @@
         }
       ]
     },
-    "struct_definition": {
+    "struct_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -506,7 +506,7 @@
         }
       ]
     },
-    "enum_definition": {
+    "enum_declaration": {
       "type": "SEQ",
       "members": [
         {
@@ -815,7 +815,7 @@
                 "type": "REPEAT",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "pragma_definition"
+                  "name": "pragma_declaration"
                 }
               },
               {
@@ -3110,7 +3110,7 @@
     },
     {
       "type": "SYMBOL",
-      "name": "pragma_definition"
+      "name": "pragma_declaration"
     },
     {
       "type": "PATTERN",

@@ -1,8 +1,12 @@
+; The capture names should correspond to the semantic tokens in the lsp spec.
+; This way it's easier to map them in an lsp implementation. This could change 
+; in the future, but for now it's easier to deal with.
+
 ; Identifiers
 
 (identifier) @variable
 (primitive_type) @type
-(struct_access name: (identifier) @type)
+(struct_access name: (identifier) @struct)
 (enum_access name: (identifier) @enum)
 (struct_access member: (identifier) @property)
 (enum_access member: (identifier) @enumMember)
@@ -13,15 +17,15 @@
 
 ; definitions
 
-(configuration_definition name: (identifier) @identifier)
-(program_definition name: (identifier) @identifier)
-(function_definition name: (identifier) @function) 
-(function_block_definition name: (identifier) @function) 
-(class_definition name: (identifier) @class) 
-(namespace_definition name: (identifier) @namespace) 
-(struct_definition name: (identifier) @struct)
-(enum_definition name: (identifier) @enum) 
-(pragma_definition) @macro
+(configuration_declaration name: (identifier) @type.declaration)
+(program_declaration name: (identifier) @type.declaration)
+(function_declaration name: (identifier) @function.declaration) 
+(function_block_declaration name: (identifier) @function.declaration) 
+(class_declaration name: (identifier) @class.declaration) 
+(namespace_declaration name: (identifier) @namespace.declaration) 
+(struct_declaration name: (identifier) @struct.declaration)
+(enum_declaration name: (identifier) @enum.declaration) 
+(pragma_declaration) @macro
 
 ; comments
 (inline_comment) @comment

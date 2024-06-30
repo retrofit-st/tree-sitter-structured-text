@@ -8,7 +8,7 @@ END_PROGRAM
 ---
 
 (source_file
-  (program_definition
+  (program_declaration
     (identifier)))
 
 ==================
@@ -21,7 +21,7 @@ END_program
 ---
 
 (source_file
-  (program_definition
+  (program_declaration
     (identifier)))
 
 ==================
@@ -45,20 +45,20 @@ END_CONFIGURATION
 ---
 
 (source_file
-  (configuration_definition
+  (configuration_declaration
     (identifier)
         (var_statement
-          (var_declaration
+          (var_definition
             (identifier)
             (primitive_type))
-          (var_declaration
+          (var_definition
             (identifier)
             (primitive_type))
-          (var_declaration
+          (var_definition
             (identifier)
             (float)
             (primitive_type))
-          (var_declaration
+          (var_definition
             (identifier)
             (float)
             (primitive_type)))
@@ -82,7 +82,7 @@ END_FUNCTION
 ---
 
 (source_file
-  (function_definition
+  (function_declaration
     (identifier)))
 
 ==================
@@ -102,11 +102,11 @@ END_FUNCTION
 ---
 
 (source_file
-  (function_definition
+  (function_declaration
     (identifier)
     (primitive_type)
     (var_statement
-      (var_declaration
+      (var_definition
         (identifier)
         (primitive_type)
         (integer)))
@@ -127,7 +127,7 @@ END_FUNCTION_BLOCK
 ---
 
 (source_file
-  (function_block_definition
+  (function_block_declaration
     (identifier)))
 
 ==================
@@ -140,7 +140,7 @@ END_CLASS
 ---
 
 (source_file
-  (class_definition
+  (class_declaration
     (identifier)))
 
 ==================
@@ -153,7 +153,7 @@ END_NAMESPACE
 ---
 
 (source_file
-  (namespace_definition
+  (namespace_declaration
     (identifier)))
 
 
@@ -171,12 +171,12 @@ END_NAMESPACE
 ---
 
 (source_file
-  (namespace_definition
+  (namespace_declaration
     (identifier)
     (identifier)
-    (class_definition
+    (class_declaration
       (identifier)
-      (function_definition
+      (function_declaration
         (identifier)))))
 
 ==================
@@ -196,14 +196,14 @@ END_NAMESPACE
 ---
 
 (source_file
-  (namespace_definition
+  (namespace_declaration
     (identifier)
     (identifier)
-    (pragma_definition)
-    (function_block_definition
+    (pragma_declaration)
+    (function_block_declaration
       (identifier)
       (var_statement
-        (pragma_definition)
-        (var_declaration
+        (pragma_declaration)
+        (var_definition
           (identifier)
           (primitive_type))))))

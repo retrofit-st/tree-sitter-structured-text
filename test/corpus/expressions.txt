@@ -23,13 +23,13 @@ END_FUNCTION_BLOCK
 ---
 
 (source_file
-  (function_block_definition
+  (function_block_declaration
     (identifier)
     (var_statement
-      (var_declaration
+      (var_definition
         (identifier)
         (primitive_type))
-          (var_declaration
+          (var_definition
             (identifier)
             (primitive_type)
             (integer)))
@@ -91,10 +91,10 @@ END_FUNCTION_BLOCK
 ---
 
 (source_file
-  (function_block_definition
+  (function_block_declaration
     (identifier)
     (var_statement
-      (var_declaration
+      (var_definition
         (identifier)
         (primitive_type)))
         (identifier)
@@ -143,13 +143,13 @@ END_FUNCTION_BLOCK
 ---
 
 (source_file
-  (function_block_definition
+  (function_block_declaration
     (identifier)
     (var_statement
-      (var_declaration
+      (var_definition
         (identifier)
         (identifier))
-      (var_declaration
+      (var_definition
         (identifier)
         (primitive_type)))
     (call_expression

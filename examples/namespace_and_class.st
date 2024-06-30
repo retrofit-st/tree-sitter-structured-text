@@ -1,3 +1,5 @@
+USING Test.FB;
+
 NAMESPACE TestNamespaceAndClass
     TYPE 
         ColorWithValues : (

@@ -9,7 +9,7 @@ END_PROGRAM
 ---
 
 (source_file
-  (program_definition
+  (program_declaration
     (identifier)
     (inline_comment)))
 
@@ -25,7 +25,7 @@ END_CLASS
 
 (source_file
   (doc_comment)
-  (class_definition
+  (class_declaration
     (identifier)))
 
 ==================
@@ -42,6 +42,6 @@ END_PROGRAM
 ---
 
 (source_file
-  (program_definition
+  (program_declaration
     (identifier)
     (block_comment)))
