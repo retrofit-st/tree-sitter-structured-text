@@ -19,7 +19,7 @@
 (function_declaration name: (identifier) @function.declaration) 
 (function_block_declaration name: (identifier) @function.declaration) 
 (class_declaration name: (identifier) @class.declaration) 
-(namespace_declaration name: (identifier) @namespace.declaration) 
+(namespace_declaration (identifier) @namespace.declaration) 
 (struct_declaration name: (identifier) @struct.declaration)
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro

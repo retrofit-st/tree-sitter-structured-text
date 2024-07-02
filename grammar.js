@@ -48,7 +48,8 @@ module.exports = grammar({
     namespace_declaration: $ =>
       seq(
         caseInsensitive('namespace'),
-        field('name', repeat(seq(optional(token.immediate('.')), $.identifier))),
+        $.identifier,
+        repeat(seq(token.immediate('.'), $.identifier)),
         repeat($._declaration),
         caseInsensitive('end_namespace'),
       ),
