@@ -14,6 +14,10 @@ NAMESPACE Test.FB
             Count_Complete  : BOOL := FALSE;        // Output Bit indicating the Count is complete            
             Current_Count   : INT  := 0;            // Accumulating Value of Counter
         END_VAR
+
+        VAR_IN_OUT
+            inoutVar : INT;
+        END_VAR
         
         VAR
             CycleTimer      : TON;                  // Timer FB from Command Library
