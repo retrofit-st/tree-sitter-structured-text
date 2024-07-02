@@ -532,12 +532,9 @@ module.exports = grammar({
 
     identifier: $ => /[a-zA-Z_]\w*/,
 
-    inline_comment: $ => seq(
-      '//',
-      token.immediate(prec(1, /.*/))
-    ),
+    inline_comment: $ => prec(1, seq('//', /.*/)),
 
-    doc_comment: $ => seq('//', token.immediate(prec(2, '/')), /.*/),
+    doc_comment: $ => prec(2, seq('///', /.*/)),
 
     // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
     block_comment: $ => prec(2, seq(
