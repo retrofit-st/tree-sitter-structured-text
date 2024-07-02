@@ -427,10 +427,10 @@ module.exports = grammar({
       seq(
         caseInsensitive('array'),
         '[',
-        choice(commaSep1($.index_range), '*'),
+        commaSep1(choice($.index_range, '*')),
         ']',
         caseInsensitive('of'),
-        $._data_type,
+        field('type', $._data_type),
       ),
 
     /* Literals */
