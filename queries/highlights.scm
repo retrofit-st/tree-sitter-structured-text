@@ -19,14 +19,14 @@
 (function_declaration name: (identifier) @function.declaration) 
 (function_block_declaration name: (identifier) @function.declaration) 
 (class_declaration name: (identifier) @class.declaration) 
-(namespace_declaration name: (identifier) @namespace.declaration) 
+(namespace_declaration (identifier) @namespace.declaration) 
 (struct_declaration name: (identifier) @struct.declaration)
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro
 
-(var_input_declaration (var_declaration name: (identifier) @parameter))
+(var_input_declaration (var_declaration name: (identifier) @parameter.readonly))
 (var_output_declaration (var_declaration name: (identifier) @parameter.modification))
-(var_in_out_declaration (var_declaration name: (identifier) @parameter))
+(var_in_out_declaration (var_declaration name: (identifier) @parameter.reference))
 (var_global_declaration (var_declaration name: (identifier) @variable))
 (var_temp_declaration (var_declaration name: (identifier) @variable))
 (var_external_declaration (var_declaration name: (identifier) @variable))

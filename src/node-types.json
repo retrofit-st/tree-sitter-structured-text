@@ -2169,25 +2169,10 @@
   {
     "type": "namespace_declaration",
     "named": true,
-    "fields": {
-      "name": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
-      "required": false,
+      "required": true,
       "types": [
         {
           "type": "class_declaration",
@@ -2203,6 +2188,10 @@
         },
         {
           "type": "function_declaration",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
