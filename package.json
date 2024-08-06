@@ -25,7 +25,8 @@
     "tree-sitter-cli": "^0.22.5"
   },
   "scripts": {
-    "build": "tree-sitter generate && node-gyp build",
+    "build": "tree-sitter generate --no-bindings",
+    "build-wasm": "tree-sitter build --wasm",
     "format": "prettier -w grammar.js",
     "lint": "eslint grammar.js",
     "test": "tree-sitter test && script/parse-examples",
