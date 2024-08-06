@@ -33,4 +33,4 @@ jobs:
       - run: npm run build-wasm
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "queries/highlights.scm, tree-sitter-structured-text.wasm"
+          artifacts: "queries/highlights.scm, tree-sitter-*.wasm"
