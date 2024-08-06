@@ -1,7 +1,3 @@
-; The capture names should correspond to the semantic tokens in the lsp spec.
-; This way it's easier to map them in an lsp implementation. This could change 
-; in the future, but for now it's easier to deal with.
-
 (identifier) @variable
 (primitive_type) @type
 (var_declaration type: (identifier) @type)
@@ -12,29 +8,29 @@
 (enum_access member: (identifier) @enumMember)
 (import_statement (identifier) @type)
 
-(call_expression name: (identifier) @function)
+(call_expression name: (identifier) @function.method)
 
 (configuration_declaration name: (identifier) @type.declaration)
 (program_declaration name: (identifier) @type.declaration)
 (function_declaration name: (identifier) @function.declaration) 
 (function_block_declaration name: (identifier) @function.declaration) 
-(class_declaration name: (identifier) @class.declaration) 
-(namespace_declaration (identifier) @namespace.declaration) 
+(class_declaration name: (identifier) @class.declaration)
+(namespace_declaration (identifier) @module.declaration)
 (struct_declaration name: (identifier) @struct.declaration)
 (enum_declaration name: (identifier) @enum.declaration) 
 (pragma_declaration) @macro
 
-(var_input_declaration (var_declaration name: (identifier) @parameter.readonly))
-(var_output_declaration (var_declaration name: (identifier) @parameter.modification))
-(var_in_out_declaration (var_declaration name: (identifier) @parameter.reference))
-(var_global_declaration (var_declaration name: (identifier) @variable))
-(var_temp_declaration (var_declaration name: (identifier) @variable))
-(var_external_declaration (var_declaration name: (identifier) @variable))
-(var_static_declaration (var_declaration name: (identifier) @variable.static))
+(var_input_declaration (var_declaration name: (identifier) @variable.parameter.readonly))
+(var_output_declaration (var_declaration name: (identifier) @variable.parameter))
+(var_in_out_declaration (var_declaration name: (identifier) @variable.parameter.reference))
+(var_global_declaration (var_declaration name: (identifier) @variable.declaration))
+(var_temp_declaration (var_declaration name: (identifier) @property))
+(var_external_declaration (var_declaration name: (identifier) @variable.declaration))
+(var_static_declaration (var_declaration name: (identifier) @property.static))
 
 ; comments
 (inline_comment) @comment
-(block_comment) @comment.multiline
+(block_comment) @comment
 (doc_comment) @comment.documentation
 
 
